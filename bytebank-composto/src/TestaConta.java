@@ -11,6 +11,10 @@ public class TestaConta {
 		
 		System.out.println(contaPaulo.titular.nome);
 		
+		contaPaulo.deposita(100);
+		//System.out.println(contaPaulo.saldo); --> sem encapsulamento
+		System.out.println(contaPaulo.getSaldo()); //-- com encapsulamento
+
 	}
 
 }
