@@ -13,4 +13,10 @@ public class ContaCorrente extends Conta {
 		return super.saca(valorComTaxa);
 	}
 
+
+	@Override
+	public double rendimento() {
+		return 0.1;
+	}
+
 }

@@ -13,6 +13,9 @@ public class TesteConta {
 		
 		System.out.println("CC: " + cc.getSaldo());
 		System.out.println("CP: " + cp.getSaldo());
+		
+		System.out.println("Valor de rendimento da CC: " + cc.rendimento() + "% ao mês");
+		System.out.println("Valor de rendimento da CP: " + cp.rendimento() + "% ao mês");
 
 	}
 

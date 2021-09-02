@@ -1,10 +1,14 @@
-public class Conta {
+public abstract class Conta {
 	
 	private double saldo;
 	private int agencia;
 	private int numero;
 	private Cliente titular;	
 	private static int total;
+	
+	
+	
+	public abstract double rendimento();
 	
 	public Conta(int agencia, int numero) {
 		Conta.total++;
