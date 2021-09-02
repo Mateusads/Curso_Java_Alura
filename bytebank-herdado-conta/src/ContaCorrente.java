@@ -1,6 +1,6 @@
 
 
-public class ContaCorrente extends Conta {
+public class ContaCorrente extends Conta implements Tributavel {
 
 	public ContaCorrente(int agencia, int numero) {
 		super(agencia, numero);
@@ -18,5 +18,11 @@ public class ContaCorrente extends Conta {
 	public double rendimento() {
 		return 0.1;
 	}
+
+
+	@Override
+	public double getValorImposto() {
+		return this.saldo * 0.01;
+	} 
 
 }
