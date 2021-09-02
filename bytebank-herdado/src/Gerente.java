@@ -1,6 +1,14 @@
-public class Gerente extends Funcionario implements Autenticavel {
 
-        private int senha;
+
+
+public class Gerente extends Funcionario implements Autenticavel {
+	
+	private AutenticaUsuario autenticador;
+      
+	public Gerente() {
+    	   autenticador = new AutenticaUsuario();
+       }
+        
 
         @Override
         public double getBonificacao() {
@@ -9,18 +17,13 @@ public class Gerente extends Funcionario implements Autenticavel {
         }
 
     	@Override
-    	public boolean autentica(int senha) {		
-    		if (this.senha == senha) {
-    			System.out.println("Autenticou");
-    			return true;
-    		} else {
-    			System.out.println("Não Autenticou");
-    			return false;
-    		}
+    	public boolean autentica(int senha) {
+    		return autenticador.autentica(senha);
     	}
+    	
     	@Override
     	public void setSenha(int senha) {
-    		this.senha = senha;
+    		autenticador.setSenha(senha);
     		
     	}
 }
