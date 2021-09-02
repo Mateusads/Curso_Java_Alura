@@ -1,5 +1,5 @@
 
-public class EditorVideo extends Funcionario {
+public class Designer extends Funcionario {
 	
 
 
