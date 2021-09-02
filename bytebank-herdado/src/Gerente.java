@@ -1,7 +1,7 @@
 
 public class Gerente extends Funcionario {
 	
-	int senha;
+	private int senha;
 	
 	
 	public boolean autentica(int senha) {
@@ -15,8 +15,8 @@ public class Gerente extends Funcionario {
 	
 
 	
-//	public double getBonificacao() {
-//		return this.salario * 0.1;
-//	}
+	public double getBonificacao() {
+		return super.getBonificacao() * 0.5;
+	}
 	
 }
