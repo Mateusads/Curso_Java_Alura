@@ -13,7 +13,7 @@ public class Fluxo {
         System.out.println("Ini do metodo1");
         try {
         	 metodo2();
-		} catch (NullPointerException | ArithmeticException e ) {
+		} catch (NullPointerException | ArithmeticException | MinhaExcecao e ) {
 			System.out.println("Exeption " + e.getMessage());
 			e.printStackTrace();
 		}
@@ -27,7 +27,8 @@ public class Fluxo {
             System.out.println(i);
 //            Teste teste = null;
 //            teste.metodoTeste();
-            i = i / 0;
+           
+           throw new MinhaExcecao("Erro minhaEx");
         }
         System.out.println("Fim do metodo2");
     }
