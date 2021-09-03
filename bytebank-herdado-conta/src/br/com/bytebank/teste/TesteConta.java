@@ -3,6 +3,13 @@ import br.com.bytebank.especial.ContaEspecial;
 import br.com.bytebank.modelo.ContaCorrente;
 import br.com.bytebank.modelo.ContaPoupança;
 
+/**
+ * Classe Testa as contas. 
+ * @author mateus.medeiros
+ *@version 1.0
+ */
+
+
 public class TesteConta {
 
 	public static void main(String[] args) {
