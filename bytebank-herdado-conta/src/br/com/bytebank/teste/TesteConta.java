@@ -1,3 +1,6 @@
+package br.com.bytebank.teste;
+import br.com.bytebank.modelo.ContaCorrente;
+import br.com.bytebank.modelo.ContaPoupança;
 
 public class TesteConta {
 

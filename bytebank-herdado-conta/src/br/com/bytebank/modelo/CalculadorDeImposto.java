@@ -1,3 +1,5 @@
+package br.com.bytebank.modelo;
+import br.com.bytebank.teste.Tributavel;
 
 public class CalculadorDeImposto {
 	
