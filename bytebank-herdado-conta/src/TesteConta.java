@@ -8,8 +8,11 @@ public class TesteConta {
 		
 		ContaPoupança cp = new ContaPoupança(11, 123123);
 		cp.deposita(74.50);
-		
-		cc.transfere(12.78, cp);
+		try {
+			cc.transfere(12.78, cp);			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		
 		System.out.println("CC: " + cc.getSaldo());
 		System.out.println("CP: " + cp.getSaldo());

@@ -21,14 +21,14 @@ public abstract class Conta {
 		this.saldo += valor;
 	}
 	
-	public void saca(double valor) {
+	public void saca(double valor) throws SaldoInsuficienteException {
 		if(this.saldo < valor) {
 			throw new SaldoInsuficienteException("Erro no saldo: Saldo " + this.saldo + " Valor:" + valor);
 		}
 		this.saldo -= valor;		
 	}
 	
-	public void transfere(double valor, Conta destinatario) {		
+	public void transfere(double valor, Conta destinatario) throws SaldoInsuficienteException {		
 		saca(valor);
 		destinatario.deposita(valor);
 	}
