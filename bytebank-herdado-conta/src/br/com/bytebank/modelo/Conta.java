@@ -1,7 +1,9 @@
 package br.com.bytebank.modelo;
 public abstract class Conta {
 	
-	protected double saldo;
+	//double saldo; - <<private package>> nem classes filhas podem ver fora do pacote
+	//private double saldo; - <Private> pode ser visto somente dentro da classe.
+	protected double saldo; // <Protected> privado para os pacotes e suas classes filhas.
 	private int agencia;
 	private int numero;
 	private Cliente titular;	
