@@ -1,6 +1,6 @@
 package br.com.bytebank.teste;
 
-public class TesteArrays {
+public class TesteArraysPrimitivos {
 
 	public static void main(String[] args) {
 
