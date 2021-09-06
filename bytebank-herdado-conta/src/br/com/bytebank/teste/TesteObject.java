@@ -12,15 +12,14 @@ public class TesteObject {
 		
 		Cliente cliente = new Cliente();
 		ContaPoupança cp = new ContaPoupança(1010, 1212);
-		ContaCorrente cc = new ContaCorrente(10, 23);
+		ContaCorrente cc = new ContaCorrente(10, 23);		
 		
 		recebe(cp);
 		recebe(cc);
-		recebe(cliente);
 	}	
-
 	
 	public static void recebe(Object obj) {
+		//System.out.println(obj.toString()); Não é preciso chamar o método toString ele já faz isso automáico implicitamente.
 		System.out.println(obj);
 	}
 
