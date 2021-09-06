@@ -33,17 +33,11 @@ public class GuardadorDeObject {
 		}
 
 		for (int i = posicaoLivre; i >= posicao; i--) {
-
-			if (posicao >= posicaoLivre - 1) {
-				break;
-			}
+			if (posicao >= posicaoLivre - 1) break;			
 			this.referencia[posicao] = referencia[posicao + 1];
 			posicao++;
-
 		}
-
 		this.posicaoLivre--;
-
 	}
 
 	public String print() {
