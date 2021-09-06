@@ -3,58 +3,27 @@ package br.com.bytebank.teste.util;
 import java.util.ArrayList;
 
 import br.com.bytebank.modelo.ContaCorrente;
+import br.com.bytebank.modelo.ContaPoupança;
 
 public class TesteJavaUtil {
 
 	public static void main(String[] args) {
 		
-		ArrayList list = new ArrayList();
+		//Generics
+		ArrayList listGeneric = new ArrayList();
 		
-		ContaCorrente cc1 = new ContaCorrente(10, 101);
-		list.add(cc1);
-		ContaCorrente cc2 = new ContaCorrente(10, 102);
-		list.add(cc2);
-		ContaCorrente cc3 = new ContaCorrente(10, 103);
-		list.add(cc3);
-		ContaCorrente cc4 = new ContaCorrente(10, 104);
-		list.add(cc4);
-		ContaCorrente cc5 = new ContaCorrente(10, 105);
-		list.add(cc5);		
+		listGeneric.add(new ContaCorrente(10, 10));
+		listGeneric.add(new ContaPoupança(10, 20));
+		System.out.println(listGeneric);
 		
-		System.out.println(list);
-		list.remove(4);
+		//Especifico
+		ArrayList<ContaCorrente> listEspecifico = new ArrayList<ContaCorrente>();
+		listEspecifico.add(new ContaCorrente(10, 10));
+		//listEspecifico.add(new ContaPoupança(10, 10)); Erro de compilação / o compilador não aceita se não for da ref. Especifica.
+		//Vantagens é que a chance menor de dar erro de tipagem ao execultar o codigo.
 		
-		System.out.println(list.contains(cc5));
-		
-		list.set(0, cc5);
-		
-		for(Object o : list) {
-			System.out.println(o);
-		}
-		
-		
-		
-		
-		/*
-		 * 55665644 - ultimo size() na maquina do teste.
-		 * TESTE PARA VERIFICAR EXCEPTION QUANDO ACABA A MEMÓRIA DA JVM.
-		Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
-		at br.com.bytebank.teste.util.TesteJavaUtil.main(TesteJavaUtil.java:31)
-		 */		
-//		while(true) {
-//				list.add(new ContaCorrente(10, 101));
-//				list.add(new ContaCorrente(10, 101));
-//				list.add(new ContaCorrente(10, 101));
-//				list.add(new ContaCorrente(10, 101));
-//				list.add(new ContaCorrente(10, 101));
-//				list.add(new ContaCorrente(10, 101));
-//				list.add(new ContaCorrente(10, 101));
-//				list.add(new ContaCorrente(10, 101));
-//				list.add(new ContaCorrente(10, 101));				
-//				System.out.println(list.size());
-		//}
-
-		
+		System.out.println();
+		System.out.println(listEspecifico);
 	}
 
 }
