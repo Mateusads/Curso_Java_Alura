@@ -5,6 +5,10 @@ package br.com.bytebank.modelo;
  * 
  * @author mateus.medeiros
  * @version 1.0 Alguns modelos de anotação
+ */
+ 
+/*
+ * Outros parâmetros que podem ser usados.
  * @param (usado no método e construtor)
  * @return (usado apenas no método)
  * @exception ou @throws (no método ou construtor)
