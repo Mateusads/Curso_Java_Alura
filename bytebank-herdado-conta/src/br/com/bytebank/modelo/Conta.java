@@ -87,5 +87,13 @@ public abstract class Conta {
 	public String toString() {
 		return "Agencia: " +  this.agencia + ", Número: " + this.numero;
 	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		Conta cta = (Conta) obj;		
+		if(this.agencia != cta.getAgencia()) return false; //As Agencias são iguais? se for diferente já retorna false;
+		if(this.numero != cta.getNumero()) return false; //Os números são iguais? se for diferente já retorna false;
+		return true; //Se chegou aqui as duas são iguais então retorna true;		
+	}
 
 }

@@ -8,20 +8,19 @@ import br.com.bytebank.modelo.ContaPoupança;
 public class TesteJavaUtil {
 
 	public static void main(String[] args) {
-		
-		//Generics
-		ArrayList listGeneric = new ArrayList();
-		
-		listGeneric.add(new ContaCorrente(10, 10));
-		listGeneric.add(new ContaPoupança(10, 20));
-		System.out.println(listGeneric);
-		
-		//Especifico
+
 		ArrayList<ContaCorrente> listEspecifico = new ArrayList<ContaCorrente>();
-		listEspecifico.add(new ContaCorrente(10, 10));
-		//listEspecifico.add(new ContaPoupança(10, 10)); Erro de compilação / o compilador não aceita se não for da ref. Especifica.
-		//Vantagens é que a chance menor de dar erro de tipagem ao execultar o codigo.
+		ContaCorrente cc1 = new ContaCorrente(100, 100);
+		listEspecifico.add(cc1);		
+		ContaCorrente cc2 = new ContaCorrente(100, 100);
+		//Primeira tentatica está dando false, apesar de ser iguais, ele está comparando as referencias.
+		//Cada referencia aponta para um objeto diferente, e para comparar os atributos e verificar se é igual
+		//devemos sobreescrever o metodo Equals da classe Object.
+		System.out.println(listEspecifico.contains(cc2));
 		
+		
+		
+	
 		System.out.println();
 		System.out.println(listEspecifico);
 	}
