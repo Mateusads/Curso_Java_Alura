@@ -1,1 +1,0 @@
-typeSearchIndex = [{"l":"All Classes","u":"allclasses-index.html"},{"p":"br.com.bytebank.modelo","l":"Conta"}];updateSearchResults();
