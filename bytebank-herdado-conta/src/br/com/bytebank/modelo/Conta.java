@@ -96,4 +96,13 @@ public abstract class Conta {
 		return true; //Se chegou aqui as duas são iguais então retorna true;		
 	}
 
+	public void setTitular(Cliente clienteCC1) {
+		this.titular = clienteCC1;
+		
+	}
+	
+	public Cliente getTitular() {
+		return titular;
+	}
+
 }

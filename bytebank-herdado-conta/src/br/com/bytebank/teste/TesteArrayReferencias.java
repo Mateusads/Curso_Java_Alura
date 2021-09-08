@@ -2,7 +2,7 @@ package br.com.bytebank.teste;
 
 import br.com.bytebank.modelo.Conta;
 import br.com.bytebank.modelo.ContaCorrente;
-import br.com.bytebank.modelo.ContaPoupança;
+import br.com.bytebank.modelo.ContaPoupanca;
 
 public class TesteArrayReferencias {
 
@@ -29,7 +29,7 @@ public class TesteArrayReferencias {
 		arrayReferencia(cc1, 5);// usando polimorfismo, - recebendo uma classe Object - e a quantidade de
 								// objetos a ser criados;
 
-		ContaPoupança cp1 = new ContaPoupança(32, 56765);
+		ContaPoupanca cp1 = new ContaPoupanca(32, 56765);
 		arrayReferencia(cp1, 5);
 
 	}

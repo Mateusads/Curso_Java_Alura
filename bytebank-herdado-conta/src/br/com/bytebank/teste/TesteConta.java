@@ -1,7 +1,7 @@
 package br.com.bytebank.teste;
 import br.com.bytebank.especial.ContaEspecial;
 import br.com.bytebank.modelo.ContaCorrente;
-import br.com.bytebank.modelo.ContaPoupança;
+import br.com.bytebank.modelo.ContaPoupanca;
 
 /**
  * Classe Testa as contas. 
@@ -22,7 +22,7 @@ public class TesteConta {
 		ContaCorrente cc = new ContaCorrente(11, 123231);
 		cc.deposita(12.99);
 		
-		ContaPoupança cp = new ContaPoupança(11, 123123);
+		ContaPoupanca cp = new ContaPoupanca(11, 123123);
 		cp.deposita(74.50);
 		try {
 			cc.transfere(12.78, cp);			

@@ -3,7 +3,7 @@ package br.com.bytebank.teste.util;
 import java.util.ArrayList;
 
 import br.com.bytebank.modelo.ContaCorrente;
-import br.com.bytebank.modelo.ContaPoupança;
+import br.com.bytebank.modelo.ContaPoupanca;
 
 public class TesteJavaUtil {
 
@@ -13,7 +13,7 @@ public class TesteJavaUtil {
 		ArrayList listGeneric = new ArrayList();
 		
 		listGeneric.add(new ContaCorrente(10, 10));
-		listGeneric.add(new ContaPoupança(10, 20));
+		listGeneric.add(new ContaPoupanca(10, 20));
 		System.out.println(listGeneric);
 		
 		//Especifico
