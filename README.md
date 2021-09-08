@@ -1,9 +1,19 @@
-# PROJETOS E EXERCÍCIOS CURSO DE JAVA COMPLETO ALURA.
-https://cursos.alura.com.br/category/programacao/java
+<div class: style="text-align: center">
+<img href="https://cursos.alura.com.br/category/programacao/java" src="https://hipsters.jobs/files/pictures/alura-dark-300.png" align="center" width="100" >
+</div>
 
-### Aproximadamente 23 cursos de java, do básico ao bem avançado seguindo os padrões usados hoje no mundo da programação Orientada a Objeto, OO
+# 
 
-Curso é iniciado com introdução sobre programação, lógica e programação OO.
+## PROJETOS E EXERCÍCIOS CURSO DE JAVA COMPLETO 
+
+## <center>ALURA. </center> 
+
+###
+
+### Aproximadamente 23 cursos de java, do básico ao avançado seguindo os padrões usados hoje no mundo da programação Orientada a Objeto, OO
+#
+
+#### Curso é iniciado com introdução sobre programação, lógica e programação OO.
 
 Onde passa para o básico sobre a sintaxe e as particularidades do Java.
 
@@ -13,14 +23,17 @@ Entrando a fundo no polimorfismo usando as classes mais genéricas como a Object
 
 Wrappers - como transformar ou como java já transforma automaticamente os atributos primitivos para objetos (Autoboxing e Unboxing)
 
+Bibliotecas padrões - Como java.lang e java.util, suas classes para facilicar um desenvolvimento.
+
 Lambdas - Programação funcional onde é possível abstrair varias ações como criar uma classe ou fazer um foreach de maneira fácil. ( -> )
 
-## Experiência com a plataforma de cursos.
+#
+# Experiência com a plataforma de cursos.
 
 A experiência com a Alura é muito boa: a equipe consegue estar sempre atualizada sobre as novas tecnologias,
 agregar conhecimentos, aperfeiçoando para melhorar e se capacitar para o mercado de trabalho da tecnologias de hoje.
 
-## ......
+### ..................................
 
 
 # Meus dados do portifólio Git.
@@ -34,5 +47,12 @@ agregar conhecimentos, aperfeiçoando para melhorar e se capacitar para o mercad
 
 ## Linguagens
 
+<div>
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original-wordmark.svg" align="center" heigth="50" width="60" >
 
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" align="center" heigth="50" width="60" >
+
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original-wordmark.svg" align="center" heigth="50" width="60" >
+
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original-wordmark.svg" align="center" heigth="50" width="60" >
+</div>
