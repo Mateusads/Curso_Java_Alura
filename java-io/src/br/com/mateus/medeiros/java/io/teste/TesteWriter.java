@@ -9,27 +9,27 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.io.PipedWriter;
 import java.io.PrintStream;
 import java.io.PrintWriter;
 
-public class TesteCopia {
+public class TesteWriter {
 
 	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
 		
-		//Fluxo de entrada de arquivos
+		PrintStream ps = new PrintStream("ipsum3.txt");
+		PrintWriter pw = new PrintWriter("ipsum3.txt");
 		
-		FileOutputStream fos = new FileOutputStream("ipsum2.txt");
-		OutputStreamWriter osw = new OutputStreamWriter(fos);
-		BufferedWriter bw = new BufferedWriter(osw);
+		ps.println("oaksdosakdosakdosakdosakdoaksdkosa");
+		ps.println("asdasdasdasda");
+		ps.println("xcvxcvcxvcxvxcvxcvcx");
+		ps.println("yuiyuiyuiyuiyuiyuyui");
 		
-		bw.write("Estou estando se está escrevendo no arquivo.");
-		bw.newLine();
-		bw.newLine();
-		bw.write("Está já é outra linha");
+		pw.println("123m123kl12m3kl12m3k12");
 		
-		bw.close();
-		
+
+		ps.close();
+		pw.close();
 
 	}
 
