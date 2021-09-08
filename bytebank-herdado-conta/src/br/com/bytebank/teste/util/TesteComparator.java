@@ -1,6 +1,7 @@
 package br.com.bytebank.teste.util;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -57,12 +58,28 @@ public class TesteComparator {
 		for (Conta conta : lista) {
 			System.out.println(conta + ", " + conta.getTitular().getNome());
 		}
-		
-		NomeTitularDaContaComparator Nomecomparator = new NomeTitularDaContaComparator();
-		lista.sort(Nomecomparator);
+				
+		lista.sort(new NomeTitularDaContaComparator());
 		
 		System.out.println();
 		System.out.println("---COMPARANDO POR NOME TITULAR------");
+
+		for (Conta conta : lista) {
+			System.out.println(conta + ", " + conta.getTitular().getNome());
+		}	
+
+		System.out.println();
+		System.out.println("---COMPARANDO POR NOME TITULAR------");
+
+		for (Conta conta : lista) {
+			System.out.println(conta + ", " + conta.getTitular().getNome());
+		}
+		
+		//Collections.sort(lista); Usando sort da Classe Collections
+		lista.sort(null); //Sem Comparator usa a ordem Natural implementado na classe conta
+		
+		System.out.println();
+		System.out.println("---COMPARANDO POR SALDO-----");
 
 		for (Conta conta : lista) {
 			System.out.println(conta + ", " + conta.getTitular().getNome());

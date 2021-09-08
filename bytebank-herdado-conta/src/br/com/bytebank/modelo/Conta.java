@@ -6,19 +6,26 @@ package br.com.bytebank.modelo;
  * @author mateus.medeiros
  * @version 1.0 Alguns modelos de anotação
  */
- 
+
 /*
  * Outros parâmetros que podem ser usados.
+ * 
  * @param (usado no método e construtor)
+ * 
  * @return (usado apenas no método)
+ * 
  * @exception ou @throws (no método ou construtor)
+ * 
  * @see
+ * 
  * @since
+ * 
  * @serial
+ * 
  * @deprecated
  */
 
-public abstract class Conta {
+public abstract class Conta implements Comparable<Conta> {
 
 	// double saldo; - <<private package>> nem classes filhas podem ver fora do
 	// pacote
@@ -82,12 +89,21 @@ public abstract class Conta {
 	public static int getTotal() {
 		return Conta.total;
 	}
-	
+
+	public void setTitular(Cliente clienteCC1) {
+		this.titular = clienteCC1;
+
+	}
+
+	public Cliente getTitular() {
+		return titular;
+	}
+
 	@Override
 	public String toString() {
-		return "Agencia: " +  this.agencia + ", Número: " + this.numero;
+		return "Agencia: " + this.agencia + ", Número: " + this.numero + ", Saldo: " + this.saldo;
 	}
-	
+
 	@Override
 	public boolean equals(Object obj) {
 		Conta cta = (Conta) obj;		
@@ -95,14 +111,11 @@ public abstract class Conta {
 		if(this.numero != cta.getNumero()) return false; //Os números são iguais? se for diferente já retorna false;
 		return true; //Se chegou aqui as duas são iguais então retorna true;		
 	}
-
-	public void setTitular(Cliente clienteCC1) {
-		this.titular = clienteCC1;
-		
+	
+	@Override
+	public int compareTo(Conta outraConta) {
+		return Double.compare(this.saldo, outraConta.saldo);
 	}
 	
-	public Cliente getTitular() {
-		return titular;
-	}
-
+	
 }
