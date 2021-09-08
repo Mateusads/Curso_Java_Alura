@@ -43,22 +43,15 @@ public class TesteComparatorAnonima {
 		lista.add(cc2);
 		lista.add(cc3);
 		lista.add(cc4);
-
-		lista.sort(new Comparator<Conta>() {
-
-			@Override
-			public int compare(Conta c1, Conta c2) {
-
-				return Integer.compare(c1.getNumero(), c2.getNumero());
-			}
-		});
+		
+		//Usando Lambda na função sort retornando um compare
+		lista.sort( (Conta c1, Conta c2) -> Integer.compare(c1.getNumero(), c2.getNumero())); //Como é somente uma instrução não precisa declarar o return.
 
 		System.out.println();
-		System.out.println("----COMPARANDO POR NÚMERO-----");
-
-		for (Conta conta : lista) {
-			System.out.println(conta + ", " + conta.getTitular().getNome());
-		}
+		System.out.println("----COMPARANDO POR NÚMERO--(lambda)---");
+		
+		//ForEach usando lambda expression
+		lista.forEach(conta -> System.out.println(conta + ", "));
 
 	}
 
