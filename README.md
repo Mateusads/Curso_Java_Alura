@@ -1,5 +1,5 @@
 <p align="center">
-  <img href="https://cursos.alura.com.br/category/programacao/java" src="https://hipsters.jobs/files/pictures/alura-dark-300.png" align="center" width="130" >
+  <img href="https://cursos.alura.com.br/" src="https://hipsters.jobs/files/pictures/alura-dark-300.png" align="center" width="130" >
 </p>
 
 # [PROJETOS E EXERCÍCIOS CURSO DE JAVA COMPLETO ALURA.](https://cursos.alura.com.br/category/programacao/java)
@@ -21,6 +21,8 @@ Bibliotecas padrões - Como java.lang e java.util, suas classes para facilicar u
 
 Lambdas - Programação funcional onde é possível abstrair varias ações como criar uma classe ou fazer um foreach de maneira fácil. ( -> )
 
+FileInput e FileOutput - Escrever e ler um aquivo é sempre importante, é abordado de maneira simples de maneira detalhada para um entendimento. 
+
 #
 # Experiência com a plataforma de cursos.
 
@@ -31,9 +33,11 @@ agregar conhecimentos, aperfeiçoando para melhorar e se capacitar para o mercad
 
 
 # Meus dados do portifólio Git.
+<div>
 <img height="140" src="https://github-readme-stats.vercel.app/api?username=mateusads&show_icons=true&theme=tokyonight">
 
 <img height="140" src="https://github-readme-stats.vercel.app/api/top-langs/?username=mateusads&layout=compact)](https://github.com/mateusads/github-readme-stats">
+</div>
 
 ## Contato
 
