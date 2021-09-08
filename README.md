@@ -2,8 +2,9 @@
   <img href="https://cursos.alura.com.br/category/programacao/java" src="https://hipsters.jobs/files/pictures/alura-dark-300.png" align="center" width="130" >
 </p>
 
-
-## PROJETOS E EXERCÍCIOS CURSO DE JAVA COMPLETO ALURA.
+<p style="font-size: 30px" align="center">
+PROJETOS E EXERCÍCIOS CURSO DE JAVA COMPLETO ALURA.
+</p>
 
 ### Aproximadamente 23 cursos de java, do básico ao avançado seguindo os padrões usados hoje no mundo da programação Orientada a Objeto, OO
 #
