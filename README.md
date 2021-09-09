@@ -23,6 +23,13 @@ Lambdas - Programação funcional onde é possível abstrair varias ações como
 
 FileInput e FileOutput - Escrever e ler um aquivo é sempre importante, é abordado de maneira simples de maneira detalhada para um entendimento. 
 
+Serializable - É transformar um objeto em outro formato, muito comum é em Json, mas também pode ser bin como no exemplo.
+No exemplo e no exercício foi criado um arquivo .bin com os dados de um Objeto, e depois foi recuperado esses dados e printado na tela.
+
+### Collections
+
+Arrays - Métodos e como os arrays se comportam.
+
 #
 # Experiência com a plataforma de cursos.
 
