@@ -29,14 +29,21 @@ Bibliotecas padrões - Como java.lang e java.util, suas classes para facilicar u
 
 Lambdas - Programação funcional onde é possível abstrair varias ações como criar uma classe ou fazer um foreach de maneira fácil. ( -> )
 
+## Java Files.
+
 FileInput e FileOutput - Escrever e ler um aquivo é sempre importante, é abordado de maneira simples de maneira detalhada para um entendimento. 
 
 Serializable - É transformar um objeto em outro formato, muito comum é em Json, mas também pode ser bin como no exemplo.
-No exemplo e no exercício foi criado um arquivo .bin com os dados de um Objeto, e depois foi recuperado esses dados e printado na tela.
+No exercício foi criado um arquivo .bin com os dados de um Objeto, e depois foi recuperado esses dados e printado na tela, 
+[Para ver os prints no console segue as imagens clicando aqui](https://github.com/Mateusads/Curso_Java_Alura/tree/master/java-io/src/img/printConsole)
 
 ## Collections.
 
 Arrays - Métodos e como os arrays se comportam. Uso de comparator e alguns métodos da Classe Collections como sort.
+
+Relacionamento com Coleções - O melhor é sempre usar a forma mais genérica usando o polimorfismo, nesse caso usando List<> invés do ArrayList ao criar a instancia de Aula em curso, para que se um dia precisar mudar para outro tipo de List fica muito mais fácil, e um baixo acoplamento é tambem um padrão de projeto.
+
+
 
 <p align="center">
   <img src="https://yata-apix-a9caea66-ad78-425f-aa08-e292558ebb65.lss.locawebcorp.com.br/0ef33a607ebb453e8fb4f13aa1ad56c7.png" align="center" width="530" >
@@ -53,10 +60,10 @@ agregar conhecimentos, aperfeiçoando para melhorar e se capacitar para o mercad
 
 
 # Meus dados do portifólio Git.
-<div>
-<img height="140" src="https://github-readme-stats.vercel.app/api?username=mateusads&show_icons=true&theme=tokyonight">
+<div align="center">
+<img height="160" src="https://github-readme-stats.vercel.app/api?username=mateusads&show_icons=true&theme=tokyonight">
 
-<img height="140" src="https://github-readme-stats.vercel.app/api/top-langs/?username=mateusads&layout=compact)](https://github.com/mateusads/github-readme-stats">
+<img height="160" src="https://github-readme-stats.vercel.app/api/top-langs/?username=mateusads&layout=compact)](https://github.com/mateusads/github-readme-stats">
 </div>
 
 ## Contato
