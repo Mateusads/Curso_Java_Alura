@@ -3,7 +3,7 @@ package br.com.curso.alura.teste;
 import br.com.curso.alura.model.Aula;
 import br.com.curso.alura.model.Curso;
 
-public class TestaListaDeCurso {
+public class TestaListaDeCursos {
 
 	public static void main(String[] args) {
 		
