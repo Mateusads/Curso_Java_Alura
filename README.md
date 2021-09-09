@@ -5,13 +5,21 @@
 # [PROJETOS E EXERCÍCIOS CURSO DE JAVA COMPLETO ALURA.](https://cursos.alura.com.br/category/programacao/java)
 
 ### Aproximadamente 23 cursos de java, do básico ao avançado seguindo os padrões usados hoje no mundo da programação Orientada a Objeto, OO
-#
 
-#### Curso é iniciado com introdução sobre programação, lógica e programação OO.
+<p align="center">
+  <img src="https://yata-apix-a9caea66-ad78-425f-aa08-e292558ebb65.lss.locawebcorp.com.br/0ef33a607ebb453e8fb4f13aa1ad56c7.png" align="center" width="530" >
+</p>
+
+
+## Java Conceitos.
+
+Curso é iniciado com introdução sobre programação, lógica e programação OO.
 
 Onde passa para o básico sobre a sintaxe e as particularidades do Java.
 
 É abordado com detalhes sobre polimorfismo e herança, assim para entender exceções e como criar as suas.
+
+## Java composição.
 
 Entrando a fundo no polimorfismo usando as classes mais genéricas como a Object a (Avó) de todos os objetos.
 
@@ -26,17 +34,22 @@ FileInput e FileOutput - Escrever e ler um aquivo é sempre importante, é abord
 Serializable - É transformar um objeto em outro formato, muito comum é em Json, mas também pode ser bin como no exemplo.
 No exemplo e no exercício foi criado um arquivo .bin com os dados de um Objeto, e depois foi recuperado esses dados e printado na tela.
 
-### Collections
+## Collections.
 
-Arrays - Métodos e como os arrays se comportam.
+Arrays - Métodos e como os arrays se comportam. Uso de comparator e alguns métodos da Classe Collections como sort.
 
-#
+<p align="center">
+  <img src="https://yata-apix-a9caea66-ad78-425f-aa08-e292558ebb65.lss.locawebcorp.com.br/0ef33a607ebb453e8fb4f13aa1ad56c7.png" align="center" width="530" >
+</p>
+
 # Experiência com a plataforma de cursos.
 
 A experiência com a Alura é muito boa: a equipe consegue estar sempre atualizada sobre as novas tecnologias,
 agregar conhecimentos, aperfeiçoando para melhorar e se capacitar para o mercado de trabalho da tecnologias de hoje.
 
-### ..................................
+<p align="center">
+  <img src="https://yata-apix-a9caea66-ad78-425f-aa08-e292558ebb65.lss.locawebcorp.com.br/0ef33a607ebb453e8fb4f13aa1ad56c7.png" align="center" width="530" >
+</p>
 
 
 # Meus dados do portifólio Git.
@@ -61,3 +74,7 @@ agregar conhecimentos, aperfeiçoando para melhorar e se capacitar para o mercad
 
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original-wordmark.svg" align="center" heigth="50" width="60" >
 </div>
+
+<p align="center">
+  <img src="https://yata-apix-a9caea66-ad78-425f-aa08-e292558ebb65.lss.locawebcorp.com.br/0ef33a607ebb453e8fb4f13aa1ad56c7.png" align="center" width="530" >
+</p>
