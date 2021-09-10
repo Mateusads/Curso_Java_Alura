@@ -43,6 +43,8 @@ Arrays - Métodos e como os arrays se comportam. Uso de comparator e alguns mét
 
 Relacionamento com Coleções - O melhor é sempre usar a forma mais genérica usando o polimorfismo, nesse caso usando List<> invés do ArrayList ao criar a instancia de Aula em curso, para que se um dia precisar mudar para outro tipo de List fica muito mais fácil, e um baixo acoplamento é tambem um padrão de projeto.
 
+Sets - Com alguns métodos similares a List por ser filhos de collections, tem uma estrutura totalmente diferente, onde para se adicionar e buscar com estrema rapidez. "Feito teste de velocidade em mls". Começando usando HashSet uma estrutura hash, que adiciona não em sequencia e sim de uma forma bem mais complexa, guardando um número mágico para poder buscar depois, por isso é bem importante na classe implementar o HashCode para a busca ser mais precisa depois.
+
 
 
 <p align="center">
