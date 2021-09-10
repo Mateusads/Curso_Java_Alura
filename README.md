@@ -51,7 +51,10 @@ LinkedHashSet - Visto de uma forma rápida por ser muito semelhando ao HashSet p
 
 TreeSet - Com forma de árvore, não foi visto a sua implementação a fundo, mas podemos ter uma visão dela, onde deve se passar um Comparator ao adicionar o elemente para que a ordenação sejá feita, no exemplo foi criado uma classe adicional que implementa Comparator para poder criar uma Collection do tipo TreeSet.
 
-Map - Vimos o HashMap mais sabemos que tem mais algumas variações como LinkedHashMap, TreeHashMap entre outras, mais que é o entendimento é que ele trabalha com Key, value (Chave, valor), ou seja para cada Objeto há uma chave para encontrar, no exemplo adicionamos em matriculaParaAluno, ao adicionar Aluno no curso é salvo a matricula como chave, para uma busca fácil de aluno por matrícula.
+## Map
+### Não é uma Collection, mas segue uma linha próxima, para armazenar varios elementos.
+
+Usamos o HashMap mais sabemos que tem mais algumas variações como LinkedHashMap, TreeHashMap entre outras, mais que é o entendimento é que ele trabalha com Key, value (Chave, valor), ou seja para cada Objeto há uma chave para encontrar, no exemplo adicionamos em matriculaParaAluno, ao adicionar Aluno no curso é salvo a matricula como chave, para uma busca fácil de aluno por matrícula.
 
 
 
