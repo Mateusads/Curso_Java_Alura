@@ -56,8 +56,33 @@ TreeSet - Com forma de árvore, não foi visto a sua implementação a fundo, ma
 
 Usamos o HashMap mais sabemos que tem mais algumas variações como LinkedHashMap, TreeHashMap entre outras, mais que é o entendimento é que ele trabalha com Key, value (Chave, valor), ou seja para cada Objeto há uma chave para encontrar, no exemplo adicionamos em matriculaParaAluno, ao adicionar Aluno no curso é salvo a matricula como chave, para uma busca fácil de aluno por matrícula.
 
+## Java 8
 
-## [Certificado Alura](https://cursos.alura.com.br/user/mateus-medeiros2/fullCertificate/426499523006e2d52fc5554ca0855d22)
+Algumas novidades foram introduzidas no [Java SE 8 (LTS)](https://docs.oracle.com/javase/8/docs/api/) (2014) como o foreach e lambda que ja foi visto no curso até aqui, porém outros recursos tambem foram introduzidos.
+
+lista.foreach(lista -> System.out.println(lista) - Exemplo de Lambda
+
+lista.foreach(System.out::println) - Exemplo de References
+
+
+Metodos default nas interfaces - Agora as interfaces podem implementar métodos, graças a essa atualização, no caso isso quer dizer que as interfaces agora podem implementar um método, não só abstrair.
+
+Temos as Functions como Comparator, Consumer entre outras Functions que possui somente um método, assim podemos fazer o lambda sem precisar explicitamente implementar o método da classe. 
+
+Stream - Toda Collection agora possui essa "Interface Fluente", é uma forma de trabalhar com Objetos, e ele possui um monte de metódos auxiliares que retornam um stream, assim sendo possível encadear as ações.
+
+		int soma = cursos.stream()
+				.filter(c -> c.getAlunos() > 100)
+				.mapToInt(Curso::getAlunos)
+				.sum();
+
+Nessa função usando stream, temos um exemplo com ela retornando um inteiro soma (lembrando que nem sempre é preciso pegar o retorno já que ele consegue fazer um forEach para printar na tela).
+
+Cursos é nossa lista de curso, por ser uma lista pode usar stream, podem ver como é prático, porque na mesma linha contatena varias ações, ele já filtra somente os cursos com + de 100 alunos, ele pega o int do retordo de getAlunos ou seja o número de alunos cadastrados, e ainda retorna e soma desses alunos com o método sum(), fica muito melhor tanto para fazer e para entender o código.
+
+
+
+## [Meu Certificado Alura](https://cursos.alura.com.br/user/mateus-medeiros2/fullCertificate/426499523006e2d52fc5554ca0855d22)
 
 
 <p align="center">
