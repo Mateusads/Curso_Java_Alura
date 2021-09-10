@@ -2,8 +2,11 @@ package br.com.curso.alura.model;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.NoSuchElementException;
 import java.util.Set;
 
 public class Curso {
@@ -12,6 +15,7 @@ public class Curso {
 	private String instrutor;
 	private List<Aula> aulas;
 	private Set<Aluno> alunos;
+	private Map<Integer, Aluno> matriculaParaAluno;
 
 	public Curso(String nome, String instrutor) {
 		if (nome == null) {
@@ -21,6 +25,7 @@ public class Curso {
 		this.instrutor = instrutor;
 		this.aulas = new ArrayList<Aula>();
 		this.alunos = new HashSet<Aluno>();
+		this.matriculaParaAluno = new HashMap<>();
 	}
 
 	public String getNome() {
@@ -45,6 +50,7 @@ public class Curso {
 
 	public void matricula(Aluno aluno) {
 		this.alunos.add(aluno);
+		this.matriculaParaAluno.put(aluno.getNumeroMatricula(), aluno);
 	}
 
 	public Set<Aluno> getAlunos() {
@@ -53,6 +59,12 @@ public class Curso {
 
 	public boolean estaMatriculado(Aluno aluno) {
 		return this.alunos.contains(aluno);
+	}
+
+	public Aluno buscaPorMatricula(int matricula) {
+		if (!matriculaParaAluno.containsKey(matricula))
+			throw new NoSuchElementException("Matricula não está cadastrada: " + matricula);
+		return matriculaParaAluno.get(matricula);
 	}
 
 	@Override
