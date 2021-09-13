@@ -122,7 +122,7 @@ Usando o Junit 5 usamos o método Assert.assertEquals para verificar se o valor 
 	int soma = calc.somar(10, 11);
     Assert.assertEquals(21, soma);
 
-
+TDD - (Test Drive Designer) é uma programação guiada a teste, onde antes de você escrever as funcionalidades, primeiro cria o teste depois implementa e por ultima refatora deixando o cod. funcional e clean.
 
 
 <p align="center">
@@ -134,11 +134,7 @@ Usando o Junit 5 usamos o método Assert.assertEquals para verificar se o valor 
 A experiência com a Alura é muito boa: a equipe consegue estar sempre atualizada sobre as novas tecnologias,
 agregar conhecimentos, aperfeiçoando para melhorar e se capacitar para o mercado de trabalho da tecnologias de hoje.
 
-<p align="center">
-  <img src="https://yata-apix-a9caea66-ad78-425f-aa08-e292558ebb65.lss.locawebcorp.com.br/0ef33a607ebb453e8fb4f13aa1ad56c7.png" align="center" width="530" >
-</p>
-
-
+#
 # Meus dados do portifólio Git.
 <div align="center">
 <img height="160" src="https://github-readme-stats.vercel.app/api?username=mateusads&show_icons=true&theme=tokyonight">
