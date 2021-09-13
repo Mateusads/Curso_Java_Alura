@@ -129,7 +129,7 @@ TDD - (Test Drive Designer) é uma programação guiada a teste, onde antes de v
 	    BigDecimal reajuste = func.getSalario().multiply(percentual);
 		  func.reajusteSalario(reajuste);		
 
-
+Teste Exception - Quando no teste você espera que de uma exception para um certo comportamento, o próprio Junit ja tem uma abordagem para isso com AssertThrow, ou usando o Try catch.
 
 <p align="center">
   <img src="https://yata-apix-a9caea66-ad78-425f-aa08-e292558ebb65.lss.locawebcorp.com.br/0ef33a607ebb453e8fb4f13aa1ad56c7.png" align="center" width="530" >
