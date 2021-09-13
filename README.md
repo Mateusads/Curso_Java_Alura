@@ -60,30 +60,48 @@ Usamos o HashMap mais sabemos que tem mais algumas variações como LinkedHashMa
 
 Algumas novidades foram introduzidas no [Java SE 8 (LTS)](https://docs.oracle.com/javase/8/docs/api/) (2014) como o foreach e lambda que ja foi visto no curso até aqui, porém outros recursos tambem foram introduzidos.
 
-lista.foreach(lista -> System.out.println(lista) - Exemplo de Lambda
+- Exemplo em Código
 
-lista.foreach(System.out::println) - Exemplo de References
+		lista.forEach(listas -> System.out.println(lista));
+		lista.forEach(System.out::println);
 
+* * O Exemplo acima exibe o mesmo resultado, o primeiro usando expressão [Lambda](https://www.devmedia.com.br/como-usar-funcoes-lambda-em-java/32826) e o segundo usando [References](https://cursos.alura.com.br/forum/topico-metodos-references-com-parametros-44231)
 
 Metodos default nas interfaces - Agora as interfaces podem implementar métodos, graças a essa atualização, no caso isso quer dizer que as interfaces agora podem implementar um método, não só abstrair.
 
 Temos as Functions como Comparator, Consumer entre outras Functions que possui somente um método, assim podemos fazer o lambda sem precisar explicitamente implementar o método da classe. 
 
-Stream - Toda Collection agora possui essa "Interface Fluente", é uma forma de trabalhar com Objetos, e ele possui um monte de metódos auxiliares que retornam um stream, assim sendo possível encadear as ações.
+Stream - Trata-se de uma poderosa solução para processar coleções de maneira declarativa, ao invés da tradicional e burocrática forma imperativa. Toda Collection agora possui essa "Interface Fluente" e possui um vários metódos auxiliares que retornam um stream, assim sendo possível encadear as ações.
+
+<p align="center">
+  <img src="https://www.oracle.com/technetwork/pt/images/java8-streams-3410045.png" align="center" width="auto" >
+</p>
+
+Na imagem podemos ver a ordem que pode ser encadeado a stream.
+
+- Exemplo em Código
 
 		int soma = cursos.stream()
 				.filter(c -> c.getAlunos() > 100)
 				.mapToInt(Curso::getAlunos)
 				.sum();
 
-Nessa função usando stream, temos um exemplo com ela retornando um inteiro soma (lembrando que nem sempre é preciso pegar o retorno já que ele consegue fazer um forEach para printar na tela).
+* * Nesse exemplo com [Stream](https://www.oracle.com/br/technical-resources/articles/java/processing-streams-java-se-8.html#:~:text=As%20streams%20suportam%20o%20m%C3%A9todo%20map%2C%20que%20usa,obter%20informa%C3%A7%C3%B5es%20de%20cada%20elemento%20de%20uma%20stream.) é usado o Filter e Functions sem precisar usar o Comparator como no fluxo da imagem.
 
-Cursos é nossa lista de curso, por ser uma lista pode usar stream, podem ver como é prático, porque na mesma linha contatena varias ações, ele já filtra somente os cursos com + de 100 alunos, ele pega o int do retordo de getAlunos ou seja o número de alunos cadastrados, e ainda retorna e soma desses alunos com o método sum(), fica muito melhor tanto para fazer e para entender o código.
+No exemplo é esperado como retorno um inteiro resultado de soma (lembrando que nem sempre é preciso pegar o retorno já que ele consegue fazer um forEach para printar na tela por exemplo), nesse caso o método sum() retorna um int, porém o mais comum é os métodos retornarem um Stream.
 
+A variavel cursos é nossa lista de Curso, por ser uma lista(Collections) pode usar stream, é muito prático, porque na mesma linha contatena varias ações, já é filtrado onde a váriavel Aluno é maior que 100, com MapToInt guarda somente o que é (Inteiro) do retordo de getAlunos ou seja o número de alunos cadastrados, e com sum() é retornado a soma desses alunos, fica muito melhor tanto para programar e para entender o código.
 
+Optional - Ganhamos muito com essa nova introdução. Assim não precisamos escrever aqueles diversos ifs garantindo que o objeto não é nulo, temos uma forma muito mais interessante de representar nossas intenções.
 
-## [Meu Certificado Alura](https://cursos.alura.com.br/user/mateus-medeiros2/fullCertificate/426499523006e2d52fc5554ca0855d22)
+		OptionalDouble media = cursos.stream()
+				.filter(c -> c.getAlunos() >= 50 )
+				.mapToInt(Curso::getAlunos)
+				.average();
+        
+* * Nesse exemplo usamos OptinalDouble, para Objetos criados podemos usar Optinal apenas, o interessando que se a divisão for por 0 não receberemos uma exception, ele guarda null.
 
+A classe [Optional](http://docs.oracle.com/javase/8/docs/api/java/util/Optional.html) nos oferece uma variedade imensa de novos métodos que nos permite trabalhar de forma funcional com nossos valores, tirando maior proveito dos novos recursos de default methods, lambdas e method reference.
 
 <p align="center">
   <img src="https://yata-apix-a9caea66-ad78-425f-aa08-e292558ebb65.lss.locawebcorp.com.br/0ef33a607ebb453e8fb4f13aa1ad56c7.png" align="center" width="530" >
@@ -122,6 +140,9 @@ agregar conhecimentos, aperfeiçoando para melhorar e se capacitar para o mercad
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original-wordmark.svg" align="center" heigth="50" width="60" >
 </div>
 
-<p align="center">
-  <img src="https://yata-apix-a9caea66-ad78-425f-aa08-e292558ebb65.lss.locawebcorp.com.br/0ef33a607ebb453e8fb4f13aa1ad56c7.png" align="center" width="530" >
-</p>
+
+# 
+
+<a align="center" href="https://cursos.alura.com.br/user/mateus-medeiros2/fullCertificate/426499523006e2d52fc5554ca0855d22">
+<h1> Meu Certificado Alura</h1>
+</a>

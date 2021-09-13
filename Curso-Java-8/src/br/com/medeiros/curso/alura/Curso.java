@@ -1,6 +1,6 @@
 package br.com.medeiros.curso.alura;
 
-class Curso {
+public class Curso {
     private String nome;
     private int alunos;
 

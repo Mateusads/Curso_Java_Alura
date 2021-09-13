@@ -1,18 +1,17 @@
-package br.com.medeiros.curso.alura;
+package br.com.medeiros.curso;
 
 import java.util.ArrayList;
 import java.util.List;
+import br.com.medeiros.curso.alura.*;
 
 public class TesteCurso {
+	
+	private static final CriaCurso novosCursos = new CriaCurso();
 
 	public static void main(String[] args) {
 
 		List<Curso> cursos = new ArrayList<Curso>();
-		cursos.add(new Curso("Python", 45));
-		cursos.add(new Curso("JavaScript", 150));
-		cursos.add(new Curso("Java 8", 113));
-		cursos.add(new Curso("C", 55));
-
+		cursos = novosCursos.criaCurso();
 		
 		//Não pegamos o retorno dessa Stream, mas conseguimos iterar e fazer um forEach nela propria
 		//Assim conseguimos filtrar com filer, e já printar na tela com o Println.
@@ -34,6 +33,8 @@ public class TesteCurso {
 		//resultado da soma dos Alunos dos Cursos Filtrados (com mais de 100 alunos)
 		System.out.println("Soma dos Alunos desses cursos é: " + soma);
 
+
 	}
+	
 
 }
