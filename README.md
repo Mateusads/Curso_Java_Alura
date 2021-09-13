@@ -122,7 +122,13 @@ Usando o Junit 5 usamos o método Assert.assertEquals para verificar se o valor 
 	int soma = calc.somar(10, 11);
     Assert.assertEquals(21, soma);
 
-TDD - (Test Drive Designer) é uma programação guiada a teste, onde antes de você escrever as funcionalidades, primeiro cria o teste depois implementa e por ultima refatora deixando o cod. funcional e clean.
+TDD - (Test Drive Designer) é uma programação guiada a teste, onde antes de você escrever as funcionalidades, primeiro cria o teste depois implementa e por ultima refatora deixando o cod. funcional e clean. Para refatorar implementamos o [Designer Pattern Strategy](https://java-design-patterns.com/patterns/strategy/) onde nosso enum implementa um método abstrato que passa o valor do percentual sem precisar criar um monte de if como na nossa primeira implementação.
+
+		public void reajuste(Funcionario func, Enum desempenho) {
+      BigDecimal percentual = desempenho.percentual();
+	    BigDecimal reajuste = func.getSalario().multiply(percentual);
+		  func.reajusteSalario(reajuste);		
+
 
 
 <p align="center">
