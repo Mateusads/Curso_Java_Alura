@@ -21,6 +21,24 @@ public class ReajusteServiceTest {
 		assertEquals(new BigDecimal("1030.00"), func.getSalario());
 	}
 	
+	@Test
+	public void reajusta10porcentoSeODesempenhoForBom() {
+		ReajusteService service = new ReajusteService();
+		Funcionario func = new Funcionario("Testelino", LocalDate.now(), new BigDecimal(1000.0));
+		service.reajuste(func, Desempenho.BOM);
 
+		assertEquals(new BigDecimal("1100.00"), func.getSalario());
+	}
+	
+	@Test
+	public void reajusta20porcentoSeODesempenhoForOtimo() {
+		ReajusteService service = new ReajusteService();
+		Funcionario func = new Funcionario("Testelino", LocalDate.now(), new BigDecimal(1000.0));
+		service.reajuste(func, Desempenho.OTIMO);
+
+		assertEquals(new BigDecimal("1200.00"), func.getSalario());
+	}
+	
+	
 
 }
