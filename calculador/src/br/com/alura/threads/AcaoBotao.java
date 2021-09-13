@@ -3,7 +3,6 @@ package br.com.alura.threads;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.math.BigInteger;
 
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -25,6 +24,7 @@ public class AcaoBotao implements ActionListener {
 
 		Runnable tarefa = new TarefaMultiplicacao(primeiro, segundo, resultado);
 		Thread threadCalculo = new Thread(tarefa, "Thread Calculadora");
+		threadCalculo.start();
 	}
 
 }
