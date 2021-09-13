@@ -33,7 +33,7 @@ Lambdas - Programação funcional onde é possível abstrair varias ações como
 
 FileInput e FileOutput - Escrever e ler um aquivo é sempre importante, é abordado de maneira simples de maneira detalhada para um entendimento. 
 
-Serializable - É transformar um objeto em outro formato, muito comum é em Json, mas também pode ser bin como no exemplo.
+Serializable - É transformar um objeto em outro formato, muito comum é em Json, mas também pode ser bin entre outros.
 No exercício foi criado um arquivo .bin com os dados de um Objeto, e depois foi recuperado esses dados e printado na tela, 
 [Para ver os prints no console segue as imagens clicando aqui](https://github.com/Mateusads/Curso_Java_Alura/tree/master/java-io/src/img/printConsole)
 
@@ -58,11 +58,11 @@ Usamos o HashMap mais sabemos que tem mais algumas variações como LinkedHashMa
 
 ## Java 8
 
-Algumas novidades foram introduzidas no [Java SE 8 (LTS)](https://docs.oracle.com/javase/8/docs/api/) (2014) como o foreach e lambda que ja foi visto no curso até aqui, porém outros recursos tambem foram introduzidos.
+Algumas novidades foram introduzidas no [Java SE 8 (LTS)](https://docs.oracle.com/javase/8/docs/api/) (2014) como o foreach e lambda que ja foi visto no curso até aqui, alguns outros recursos importante do Java 8 é abordado.
 
 - Exemplo em Código
 
-		lista.forEach(listas -> System.out.println(lista));
+		lista.forEach(l -> System.out.println(l));
 		lista.forEach(System.out::println);
 
 * * O Exemplo acima exibe o mesmo resultado, o primeiro usando expressão [Lambda](https://www.devmedia.com.br/como-usar-funcoes-lambda-em-java/32826) e o segundo usando [References](https://cursos.alura.com.br/forum/topico-metodos-references-com-parametros-44231)
@@ -98,10 +98,32 @@ Optional - Ganhamos muito com essa nova introdução. Assim não precisamos escr
 				.filter(c -> c.getAlunos() >= 50 )
 				.mapToInt(Curso::getAlunos)
 				.average();
-        
+
 * * Nesse exemplo usamos OptinalDouble, para Objetos criados podemos usar Optinal apenas, o interessando que se a divisão for por 0 não receberemos uma exception, ele guarda null.
 
 A classe [Optional](http://docs.oracle.com/javase/8/docs/api/java/util/Optional.html) nos oferece uma variedade imensa de novos métodos que nos permite trabalhar de forma funcional com nossos valores, tirando maior proveito dos novos recursos de default methods, lambdas e method reference.
+
+DataTime - Até o java 8 lidar com datas no java era difícil e burocrático, porêm essa nova forma veio para simplificar tudo.
+Para formatar, criar datas, e fazer operações com ela virou coisa simples, para pegar datas com tempo como horas e minutos pode ser usado o LocalDateTime.
+- Exemplo em Código
+
+		DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy hh:mm");		
+		LocalDateTime agoraComMinutos = LocalDateTime.now();
+		System.out.println(agoraComMinutos.format(formatador));
+
+No exemplo é criado um formatador(opcional), na próxima linha de cod é guardado a LocalDateTime.now() pega a sua data e hora do sistema e faz um print passando o formatador.
+
+
+# Java teste unitário
+
+Junit - Primeiro teste foi comparado um teste sem e com Junit como ele ajuda e deixa muito mais fácil a verificação do teste.
+Usando o Junit 5 usamos o método Assert.assertEquals para verificar se o valor que recebemos do método é o esperado.
+
+	int soma = calc.somar(10, 11);
+    Assert.assertEquals(21, soma);
+
+
+
 
 <p align="center">
   <img src="https://yata-apix-a9caea66-ad78-425f-aa08-e292558ebb65.lss.locawebcorp.com.br/0ef33a607ebb453e8fb4f13aa1ad56c7.png" align="center" width="530" >
@@ -140,9 +162,5 @@ agregar conhecimentos, aperfeiçoando para melhorar e se capacitar para o mercad
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original-wordmark.svg" align="center" heigth="50" width="60" >
 </div>
 
-
-# 
-
-<a align="center" href="https://cursos.alura.com.br/user/mateus-medeiros2/fullCertificate/426499523006e2d52fc5554ca0855d22">
-<h1> Meu Certificado Alura</h1>
-</a>
+#
+# [Meu Certificado Alura](https://cursos.alura.com.br/user/mateus-medeiros2/fullCertificate/426499523006e2d52fc5554ca0855d22)
