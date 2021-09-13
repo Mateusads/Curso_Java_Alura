@@ -8,20 +8,20 @@ import br.com.alura.tdd.modelo.Funcionario;
 
 public class ReajusteService {
 
-
 	public void reajuste(Funcionario func, Desempenho desempenho) {
-		
-		if(desempenho == Desempenho.A_DESEJAR) {
-			BigDecimal reajusteSalario = func.getSalario().multiply(new BigDecimal(0.03).setScale(2, RoundingMode.HALF_UP));
-			func.reajusteSalario(reajusteSalario);			
-		}else if(desempenho == Desempenho.BOM) {
-			BigDecimal reajusteSalario = func.getSalario().multiply(new BigDecimal(0.10).setScale(2, RoundingMode.HALF_UP));
-			func.reajusteSalario(reajusteSalario);
-		}else if(desempenho == Desempenho.OTIMO) {
-			BigDecimal reajusteSalario = func.getSalario().multiply(new BigDecimal(0.20).setScale(2, RoundingMode.HALF_UP));
-			func.reajusteSalario(reajusteSalario);
+
+		if (desempenho == Desempenho.A_DESEJAR) {
+			func.reajusteSalario(reajusta(new BigDecimal("0.03"), func.getSalario()));
+		} else if (desempenho == Desempenho.BOM) {
+			func.reajusteSalario(reajusta(new BigDecimal("0.10"), func.getSalario()));
+		} else if (desempenho == Desempenho.OTIMO) {
+			func.reajusteSalario(reajusta(new BigDecimal("0.20"), func.getSalario()));
 		}
-		
+
+	}
+
+	private BigDecimal reajusta(BigDecimal porcentagem, BigDecimal salario) {
+		return salario.multiply(porcentagem.setScale(2, RoundingMode.HALF_UP));
 	}
 
 }
