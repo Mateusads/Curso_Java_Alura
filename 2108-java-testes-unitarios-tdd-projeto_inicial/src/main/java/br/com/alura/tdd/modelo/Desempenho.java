@@ -1,4 +1,4 @@
-package br.com.alura.tdd.model;
+package br.com.alura.tdd.modelo;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
