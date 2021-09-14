@@ -133,7 +133,10 @@ Teste Exception - Quando no teste você espera que de uma exception para um cert
 
 #  Java Programação paralela (Threads)
 
-Threads - Primeiro um projeto rodando somente uma thread que a própria JVM cria. Uma aplicação de calculador (feita para travar com números altos) abre uma tela feita em swing e pede dois números para multiplicação, como não é ainda uma execução em paralelo ela fica travada para o usuário até que seja finalizada o calculo. 
+Threads - Primeiro um projeto rodando somente uma thread que a própria JVM cria. Uma aplicação de calculador (feita para travar com números altos) abre uma tela feita em swing e pede dois números para multiplicação, como não é ainda uma execução em paralelo ela fica travada para o usuário até que seja finalizada o calculo, então vamos resolver com threds.
+
+Varias Threads - Feito um cod. com várias threds buscando nome em arquivos separados, nesse caso vimos que como elas também dependem do sistema operacional, a ordem que são execultadas não segue um padrão, é a primeira que chegar execulta, e pode se alterar toda vez.
+
  
 <p align="center">
   <img src="https://yata-apix-a9caea66-ad78-425f-aa08-e292558ebb65.lss.locawebcorp.com.br/0ef33a607ebb453e8fb4f13aa1ad56c7.png" align="center" width="530" >
