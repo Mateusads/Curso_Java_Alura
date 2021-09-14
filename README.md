@@ -141,6 +141,8 @@ Synchronized - As threads execultam o mesmo bloco de cod. simultaneamente, poré
 
 Thread-Safe - Por padrão List<> não é synchronized, então como varias threads podem manipular uma List ao mesmo tempo??? No caso temos um tipo de List pouco usado(porque é como se fosse um array[]) que é synchronized e se chama [Vector()](https://docs.oracle.com/javase/7/docs/api/java/util/Vector.html), tbm podemos usar um Collections.[synchronizedList](https://www.geeksforgeeks.org/collections-synchronizedlist-method-in-java-with-examples/)(new ArrayList<>()), vai depender da sua aplicação.  
 
+Wait/Notify - Quando a thread é execultada e por algum motivo ele deve esperar uma ação de outra thread deve-se usar o wait(), porém a thread que realizar ação deve avisar (Notify) a que está esperando que o trabalho dela está pronto. (obs se não noticar a thread fica aguardando)...
+
  
 <p align="center">
   <img src="https://yata-apix-a9caea66-ad78-425f-aa08-e292558ebb65.lss.locawebcorp.com.br/0ef33a607ebb453e8fb4f13aa1ad56c7.png" align="center" width="530" >
