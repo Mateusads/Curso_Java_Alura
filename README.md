@@ -139,7 +139,7 @@ Varias Threads - Feito um cod. com várias threds buscando nome em arquivos sepa
 
 Synchronized - As threads execultam o mesmo bloco de cod. simultaneamente, porém as vezes não é bem o que o programador quer, no exemplo usamos o banheiro, que pode entrar um de cada vez, então o synchronized deixa somente uma thread por vez.
 
-
+Thread-Safe - Por padrão List<> não é synchronized, então como varias threads podem manipular uma List ao mesmo tempo??? No caso temos um tipo de List pouco usado(porque é como se fosse um array[]) que é synchronized e se chama [Vector()](https://docs.oracle.com/javase/7/docs/api/java/util/Vector.html), tbm podemos usar um Collections.[synchronizedList](https://www.geeksforgeeks.org/collections-synchronizedlist-method-in-java-with-examples/)(new ArrayList<>()), vai depender da sua aplicação.  
 
  
 <p align="center">
