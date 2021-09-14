@@ -11,7 +11,10 @@ public class TarefaLimpeza implements Runnable {
 	@Override
 	public void run() {
 		try {
-			banheiro.limpa();
+			while(true) {
+				banheiro.limpa();
+				Thread.sleep(10000);
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
