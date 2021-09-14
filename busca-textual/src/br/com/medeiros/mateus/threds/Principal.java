@@ -8,8 +8,8 @@ public class Principal {
 
 
 			Thread threadAssinatura1 = new Thread(new TarefaBuscaNome("assinaturas1.txt", nome));
-			Thread threadAssinatura2 = new Thread(new TarefaBuscaNome("assinaturas2.txt", nome));
-			Thread threadAutores = new Thread(new TarefaBuscaNome("autores.txt", nome));
+			Thread threadAssinatura2 = new Thread(new TarefaBuscaNome("assinaturas1.txt", nome));
+			Thread threadAutores = new Thread(new TarefaBuscaNome("assinaturas1.txt", nome));
 			threadAssinatura1.start();
 			threadAssinatura2.start();
 			threadAutores.start();

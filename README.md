@@ -137,6 +137,10 @@ Threads - Primeiro um projeto rodando somente uma thread que a própria JVM cria
 
 Varias Threads - Feito um cod. com várias threds buscando nome em arquivos separados, nesse caso vimos que como elas também dependem do sistema operacional, a ordem que são execultadas não segue um padrão, é a primeira que chegar execulta, e pode se alterar toda vez.
 
+Synchronized - As threads execultam o mesmo bloco de cod. simultaneamente, porém as vezes não é bem o que o programador quer, no exemplo usamos o banheiro, que pode entrar um de cada vez, então o synchronized deixa somente uma thread por vez.
+
+
+
  
 <p align="center">
   <img src="https://yata-apix-a9caea66-ad78-425f-aa08-e292558ebb65.lss.locawebcorp.com.br/0ef33a607ebb453e8fb4f13aa1ad56c7.png" align="center" width="530" >
