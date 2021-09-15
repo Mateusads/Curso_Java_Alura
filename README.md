@@ -143,6 +143,13 @@ Thread-Safe - Por padrão List<> não é synchronized, então como varias thread
 
 Wait/Notify - Quando a thread é execultada e por algum motivo ele deve esperar uma ação de outra thread deve-se usar o wait(), porém a thread que realizar ação deve avisar (Notify) a que está esperando que o trabalho dela está pronto. (obs se não noticar a thread fica aguardando)...
 
+## Threads-(Programação Concorrente)
+
+        Executors.newFixedThreadPool(2);
+        Executors.newCachedThreadPool();
+
+Executors é como se fosse um gerenciador das threads entrou após o java 5, na primeira linha é criado um valor fixo de threads no exemplo é 2, e é reutilizada a thread assim que uma operação não usa mais e outra solicita.
+Já a segunda linha newCached essa operação é dinamica, cria conforme a demanda, e após um tempo sem uso ela remove.
  
 <p align="center">
   <img src="https://yata-apix-a9caea66-ad78-425f-aa08-e292558ebb65.lss.locawebcorp.com.br/0ef33a607ebb453e8fb4f13aa1ad56c7.png" align="center" width="530" >
