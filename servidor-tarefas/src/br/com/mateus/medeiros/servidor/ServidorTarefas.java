@@ -32,7 +32,7 @@ public class ServidorTarefas {
 
 				DistribuirTarefas distribuirTarefas = new DistribuirTarefas(threadPool, socket, this);
 
-				this.threadPool.execute(distribuirTarefas);
+				this.threadPool.submit(distribuirTarefas); 
 			} catch (SocketException e) {
 				System.out.println("SocketException, está rodando? " + this.estaRodando);
 			}

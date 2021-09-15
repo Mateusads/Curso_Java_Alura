@@ -158,16 +158,34 @@ Já a segunda linha newCached essa operação é dinamica, cria conforme a deman
 
 Volatile - Palavra chave usada no java para que as  Threads saibam que o atributo não pode ser usado em cache, no caso estamos manipulando um atributo boolean e a alteração desse atributo é feito na thread main, se cada thread tiver seu cache não vai receber a alteração. 
 
-	private volatile boolean estaRodando = true;
+	  private volatile boolean estaRodando = true;
  
 
 - Exemplo de como declarar usando volatile.
 
 E no pacote java.util.concurrent surgiu uma nova forma de representar, e foi usando AtomicBoolen, um objeto que porém é praticamente um Wrapper que faz o uso de volatile. 
 
-	private AtomicBoolean estaRodando = new AtomicBoolean(true);
+	  private AtomicBoolean estaRodando = new AtomicBoolean(true);
 
 - Exemplo de como declarar usando AtomicBoolean.
+
+Thread Exception - Para tratar a exceção nas threads deve ser tratado em cada, pois a exceção cai na pilha de execução, então mesmo com try catch no main não vai conseguir tratas a exceção, porem com concurrents possui um metodo que ajuda nessa parta.
+
+      Executors.newFixedThreadPool(4, new FabricaDeThreads())
+
+Assim quando passamos a quantidade de threds no executor, conseguimos passar uma Factory de threads que criamos para chamar uma execeção, assim conseguindo tratar se alguma lançar uma execeção e centralizando esse tratamento.
+
+Callable - Parecida com Runnable porém pode ter um retorno, assim é possível retornar uma resposta do tipo Future.
+
+      Future<String> futureBanco = threadPool.submit(new ComandoC2AcessaBanco(saidaCliente));
+- Exemplo com retorno tipo Future.
+
+Porém esse tipo Future não é bem um tipo, ele na verdade espera um tipo no "Futuro" como nome ja diz, usando seu método get() ele da blocked na Thread até receber seu retorno.
+
+      String retorno = futureBanco.get(10, TimeUnit.SECONDS);
+- No exemplo foi passado um tempo de 10 segundos mas é opcional.
+
+Nesse caso de passar o tempo, caso o retorno não chegue é lançado uma execeção, da para deixar sem o tempo, mas se não vim o retorno ele ficara aguardando.
 
 <p align="center">
   <img src="https://yata-apix-a9caea66-ad78-425f-aa08-e292558ebb65.lss.locawebcorp.com.br/0ef33a607ebb453e8fb4f13aa1ad56c7.png" align="center" width="530" >
