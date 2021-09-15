@@ -1,26 +1,53 @@
 package br.com.mateus.medeiros.servidor;
 
+import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.SocketException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class ServidorTarefas {
 
-    public static void main(String[] args) throws Exception {
+	private ServerSocket servidor;
+	private ExecutorService threadPool;
+	private AtomicBoolean estaRodando;
 
-        System.out.println("---- Iniciando Servidor ----");
-        ServerSocket servidor = new ServerSocket(12345);
-        ExecutorService poolDeThreadsFixo = Executors.newFixedThreadPool(2); //Cria um limite de 2 threads e reaproveita ela assim que um cliente não usar mais.
-        //ExecutorService poolDeThreads = Executors.newCachedThreadPool();
- 
+	// construtor
+	public ServidorTarefas() throws IOException {
+		System.out.println("---- Iniciando Servidor ----");
+		this.servidor = new ServerSocket(12345);
+		this.threadPool = Executors.newFixedThreadPool(4, new FabricaDeThreads());
+		this.estaRodando = new AtomicBoolean(true);
+	}
 
-        while (true) {
-            Socket socket = servidor.accept();    
-            System.out.println("Aceitando novo cliente na porta " + socket.getPort());
-            DistribuirTarefas distribuirTarefas = new DistribuirTarefas(socket);
-            poolDeThreadsFixo.execute(distribuirTarefas);
-        }
-    }
+	public void rodar() throws IOException {
+
+		while (this.estaRodando.get()) {
+
+			try {
+				Socket socket = this.servidor.accept();
+				System.out.println("Aceitando novo cliente na porta " + socket.getPort());
+
+				DistribuirTarefas distribuirTarefas = new DistribuirTarefas(threadPool, socket, this);
+
+				this.threadPool.execute(distribuirTarefas);
+			} catch (SocketException e) {
+				System.out.println("SocketException, está rodando? " + this.estaRodando);
+			}
+		}
+	}
+
+	public void parar() throws IOException {
+		System.out.println("Parando servidor");
+		this.estaRodando.set(false);
+		this.threadPool.shutdown();
+		this.servidor.close();
+	}
+
+	public static void main(String[] args) throws Exception {
+		ServidorTarefas servidor = new ServidorTarefas();
+		servidor.rodar(); // o servidor roda enquanto estaRodando = true
+	}
 }

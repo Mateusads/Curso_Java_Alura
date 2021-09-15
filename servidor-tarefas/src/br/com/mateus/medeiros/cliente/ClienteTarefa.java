@@ -1,34 +1,76 @@
 package br.com.mateus.medeiros.cliente;
 
+import java.io.IOException;
 import java.io.PrintStream;
 import java.net.Socket;
 import java.util.Scanner;
 
 public class ClienteTarefa {
 
+
     public static void main(String[] args) throws Exception {
-
         Socket socket = new Socket("localhost", 12345);
-        System.out.println("conexão estabelecida");
+        System.out.println("Conexão Estabelecida");
 
-        //enviando comando c1 para servidor
-        PrintStream saida = new PrintStream(socket.getOutputStream());       
+        Thread threadEnviaComando = new Thread(new Runnable() {
 
-        //aguardando enter
-        Scanner teclado = new Scanner(System.in);
-        while(true) {
-            System.out.println("Digite 1 para mostrar o PI");
-            System.out.println("Digite 2 para encerrar a conexão");
-        	
-        	 String d = teclado.nextLine(); 
-        	 if(d.equals("2")) break;
-        	 saida.println(d);
-        }
-       
+            @Override
+            public void run() {
 
-        //fechando recursos
-        saida.close();
-        teclado.close();
+                try {
+                    System.out.println("Pode enviar comandos!");
+                    PrintStream saida = new PrintStream(socket.getOutputStream());
+
+                    Scanner teclado = new Scanner(System.in);
+                    while (teclado.hasNextLine()) {
+
+                        String linha = teclado.nextLine();
+
+                        if (linha.trim().equals("")) {
+                            break;
+                        }
+
+                        saida.println(linha);
+                    }
+
+                    saida.close();
+                    teclado.close();
+
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
+
+        Thread threadRecebeResposta = new Thread(new Runnable() {
+
+            @Override
+            public void run() {
+
+                try {
+                    System.out.println("Recebendo dados do servidor");
+                    Scanner respostaServidor = new Scanner(socket.getInputStream());
+
+                    while (respostaServidor.hasNextLine()) {
+                        String linha = respostaServidor.nextLine();
+                        System.out.println(linha);
+                    }
+
+                    respostaServidor.close();
+
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
+
+        threadRecebeResposta.start();
+        threadEnviaComando.start();
+
+        threadEnviaComando.join();
+
+        System.out.println("Fechando o socket do cliente");
+
         socket.close();
     }
 }

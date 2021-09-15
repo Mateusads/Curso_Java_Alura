@@ -131,7 +131,7 @@ TDD - (Test Drive Designer) é uma programação guiada a teste, onde antes de v
  
 Teste Exception - Quando no teste você espera que de uma exception para um certo comportamento, o próprio Junit já tem uma abordagem para isso com AssertThrow, ou usando o Try catch.
 
-#  Java Programação paralela (Threads)
+#  Threads (Java Programação paralela)
 
 Threads - Primeiro um projeto rodando somente uma thread que a própria JVM cria. Uma aplicação de calculador (feita para travar com números altos) abre uma tela feita em swing e pede dois números para multiplicação, como não é ainda uma execução em paralelo ela fica travada para o usuário até que seja finalizada o calculo, então vamos resolver com threds.
 
@@ -143,14 +143,32 @@ Thread-Safe - Por padrão List<> não é synchronized, então como varias thread
 
 Wait/Notify - Quando a thread é execultada e por algum motivo ele deve esperar uma ação de outra thread deve-se usar o wait(), porém a thread que realizar ação deve avisar (Notify) a que está esperando que o trabalho dela está pronto. (obs se não noticar a thread fica aguardando)...
 
-## Threads-(Programação Concorrente)
+## Threads II (Programação Concorrente)
+
+Threads II - Segundo curso de threads que visa uma visão bem focada nas funcionalidades e melhorias em threads e um pouco do pacote java.util.concurrent que entrou no java 5.
+
 
         Executors.newFixedThreadPool(2);
         Executors.newCachedThreadPool();
 
-Executors é como se fosse um gerenciador das threads entrou após o java 5, na primeira linha é criado um valor fixo de threads no exemplo é 2, e é reutilizada a thread assim que uma operação não usa mais e outra solicita.
+- Exemplo usando Executors uma classe do package concurrent.
+
+Executors é como se fosse um gerenciador das threads, na primeira linha é criado um valor fixo de threads (no exemplo é dois mais é só usar um inteiro com a quantidade) e reutilizada a thread assim que uma operação não usa mais e outra solicita.
 Já a segunda linha newCached essa operação é dinamica, cria conforme a demanda, e após um tempo sem uso ela remove.
+
+Volatile - Palavra chave usada no java para que as  Threads saibam que o atributo não pode ser usado em cache, no caso estamos manipulando um atributo boolean e a alteração desse atributo é feito na thread main, se cada thread tiver seu cache não vai receber a alteração. 
+
+	private volatile boolean estaRodando = true;
  
+
+- Exemplo de como declarar usando volatile.
+
+E no pacote java.util.concurrent surgiu uma nova forma de representar, e foi usando AtomicBoolen, um objeto que porém é praticamente um Wrapper que faz o uso de volatile. 
+
+	private AtomicBoolean estaRodando = new AtomicBoolean(true);
+
+- Exemplo de como declarar usando AtomicBoolean.
+
 <p align="center">
   <img src="https://yata-apix-a9caea66-ad78-425f-aa08-e292558ebb65.lss.locawebcorp.com.br/0ef33a607ebb453e8fb4f13aa1ad56c7.png" align="center" width="530" >
 </p>
