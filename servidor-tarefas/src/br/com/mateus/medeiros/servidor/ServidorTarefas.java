@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketException;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -13,13 +15,16 @@ public class ServidorTarefas {
 	private ServerSocket servidor;
 	private ExecutorService threadPool;
 	private AtomicBoolean estaRodando;
+	private BlockingQueue<String> filaCliente;
 
 	// construtor
 	public ServidorTarefas() throws IOException {
 		System.out.println("---- Iniciando Servidor ----");
 		this.servidor = new ServerSocket(12345);
-		this.threadPool = Executors.newFixedThreadPool(4, new FabricaDeThreads());
+		this.threadPool = Executors.newCachedThreadPool(new FabricaDeThreads());
 		this.estaRodando = new AtomicBoolean(true);
+		this.filaCliente = new ArrayBlockingQueue<>(2);
+		inicializarConsumidores();
 	}
 
 	public void rodar() throws IOException {
@@ -30,13 +35,24 @@ public class ServidorTarefas {
 				Socket socket = this.servidor.accept();
 				System.out.println("Aceitando novo cliente na porta " + socket.getPort());
 
-				DistribuirTarefas distribuirTarefas = new DistribuirTarefas(threadPool, socket, this);
+				DistribuirTarefas distribuirTarefas = new DistribuirTarefas(threadPool, filaCliente, socket, this);
 
-				this.threadPool.submit(distribuirTarefas); 
+				this.threadPool.submit(distribuirTarefas);
 			} catch (SocketException e) {
 				System.out.println("SocketException, está rodando? " + this.estaRodando);
 			}
 		}
+	}
+
+	private void inicializarConsumidores() {
+
+		int qtdConsumidores = 2;
+		for (int i = 0; i < qtdConsumidores; i++) {
+			TarefaConsumir tarefa = new TarefaConsumir(filaCliente);
+			this.threadPool.execute(tarefa);
+
+		}
+
 	}
 
 	public void parar() throws IOException {

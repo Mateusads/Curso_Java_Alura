@@ -62,8 +62,8 @@ Algumas novidades foram introduzidas no [Java SE 8 (LTS)](https://docs.oracle.co
  
 - Exemplo em Código
  
-    lista.forEach(l -> System.out.println(l));
-    lista.forEach(System.out::println);
+      lista.forEach(l -> System.out.println(l));
+      lista.forEach(System.out::println);
  
 * * O Exemplo acima exibe o mesmo resultado, o primeiro usando expressão [Lambda](https://www.devmedia.com.br/como-usar-funcoes-lambda-em-java/32826) e o segundo usando [References](https://cursos.alura.com.br/forum/topico-metodos-references-com-parametros-44231)
  
@@ -81,10 +81,10 @@ Na imagem podemos ver a ordem que pode ser encadeada ao stream.
  
 - Exemplo em Código
  
-    int soma = cursos.stream()
-        .filter(c -> c.getAlunos() > 100)
-        .mapToInt(Curso::getAlunos)
-        .sum();
+      int soma = cursos.stream()
+          .filter(c -> c.getAlunos() > 100)
+          .mapToInt(Curso::getAlunos)
+          .sum();
  
 * * Nesse exemplo com [Stream](https://www.oracle.com/br/technical-resources/articles/java/processing-streams-java-se-8.html#:~:text=As%20streams%20suportam%20o%20m%C3%A9todo%20map%2C%20que%20usa,obter%20informa%C3%A7%C3%B5es%20de%20cada%20elemento%20de%20uma%20stream.) é usado o Filter e Functions sem precisar usar o Comparator como no fluxo da imagem.
  
@@ -94,11 +94,11 @@ A variável cursos é nossa lista de Curso, por ser uma lista(Collections) pode 
  
 Optional - Ganhamos muito com essa nova introdução. Assim não precisamos escrever aqueles diversos ifs garantindo que o objeto não é nulo, temos uma forma muito mais interessante de representar nossas intenções.
  
-    OptionalDouble media = cursos.stream()
-        .filter(c -> c.getAlunos() >= 50 )
-        .mapToInt(Curso::getAlunos)
-        .average();
- 
+      OptionalDouble media = cursos.stream()
+          .filter(c -> c.getAlunos() >= 50 )
+          .mapToInt(Curso::getAlunos)
+          .average();
+  
 * * Nesse exemplo usamos OptinalDouble, para Objetos criados podemos usar Optinal apenas, o interessado que se a divisão for por 0 não receberemos uma exception, ele guarda null.
  
 A classe [Optional](http://docs.oracle.com/javase/8/docs/api/java/util/Optional.html) nos oferece uma variedade imensa de novos métodos que nos permite trabalhar de forma funcional com nossos valores, tirando maior proveito dos novos recursos de default methods, lambdas e method reference.
@@ -107,9 +107,9 @@ DataTime - Até o java 8 lidar com datas no java era difícil e burocrático, po
 Para formatar, criar datas, e fazer operações com ela virou coisa simples, para pegar datas com tempo como horas e minutos pode ser usado o LocalDateTime.
 - Exemplo em Código
  
-    DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy hh:mm");   
-    LocalDateTime agoraComMinutos = LocalDateTime.now();
-    System.out.println(agoraComMinutos.format(formatador));
+      DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy hh:mm");   
+      LocalDateTime agoraComMinutos = LocalDateTime.now();
+      System.out.println(agoraComMinutos.format(formatador));
  
 No exemplo é criado um formatador(opcional), na próxima linha de cod é guardado a LocalDateTime.now() pega a sua data e hora do sistema e faz um print passando o formatador.
  
@@ -119,16 +119,16 @@ No exemplo é criado um formatador(opcional), na próxima linha de cod é guarda
 Junit - Primeiro teste foi comparado um teste sem e com Junit como ele ajuda e deixa muito mais fácil a verificação do teste.
 Usando o Junit 5 usamos o método Assert.assertEquals para verificar se o valor que recebemos do método é o esperado.
  
-  int soma = calc.somar(10, 11);
-    Assert.assertEquals(21, soma);
- 
+      int soma = calc.somar(10, 11);
+        Assert.assertEquals(21, soma);
+    
 TDD - (Test Drive Designer) é uma programação guiada a teste, onde antes de você escrever as funcionalidades, primeiro cria o teste, depois implementa e por último refatora deixando o cod. funcional e clean. Para refatorar implementamos o [Designer Pattern Strategy](https://java-design-patterns.com/patterns/strategy/) onde nosso enum implementa um método abstrato que passa o valor do percentual sem precisar criar um monte de if como na nossa primeira implementação.
  
-    public void reajuste(Funcionario func, Enum desempenho) {
-      BigDecimal percentual = desempenho.percentual();
-      BigDecimal reajuste = func.getSalario().multiply(percentual);
-      func.reajusteSalario(reajuste);   
- 
+      public void reajuste(Funcionario func, Enum desempenho) {
+        BigDecimal percentual = desempenho.percentual();
+        BigDecimal reajuste = func.getSalario().multiply(percentual);
+        func.reajusteSalario(reajuste);   
+  
 Teste Exception - Quando no teste você espera que de uma exception para um certo comportamento, o próprio Junit já tem uma abordagem para isso com AssertThrow, ou usando o Try catch.
 
 #  Threads (Java Programação paralela)
@@ -158,14 +158,14 @@ Já a segunda linha newCached essa operação é dinamica, cria conforme a deman
 
 Volatile - Palavra chave usada no java para que as  Threads saibam que o atributo não pode ser usado em cache, no caso estamos manipulando um atributo boolean e a alteração desse atributo é feito na thread main, se cada thread tiver seu cache não vai receber a alteração. 
 
-	  private volatile boolean estaRodando = true;
+	    private volatile boolean estaRodando = true;
  
 
 - Exemplo de como declarar usando volatile.
 
 E no pacote java.util.concurrent surgiu uma nova forma de representar, e foi usando AtomicBoolen, um objeto que porém é praticamente um Wrapper que faz o uso de volatile. 
 
-	  private AtomicBoolean estaRodando = new AtomicBoolean(true);
+	    private AtomicBoolean estaRodando = new AtomicBoolean(true);
 
 - Exemplo de como declarar usando AtomicBoolean.
 
@@ -185,7 +185,21 @@ Porém esse tipo Future não é bem um tipo, ele na verdade espera um tipo no "F
       String retorno = futureBanco.get(10, TimeUnit.SECONDS);
 - No exemplo foi passado um tempo de 10 segundos mas é opcional.
 
-Nesse caso de passar o tempo, caso o retorno não chegue é lançado uma execeção, da para deixar sem o tempo, mas se não vim o retorno ele ficara aguardando.
+Nesse caso de passar o tempo, caso o retorno não chegar é lançado uma execeção, da para deixar sem o tempo, mas se não vim o retorno ele ficara aguardando.
+
+BlockingQueue - [Queue](BlockingQueue) é uma "Fila", que diferente de lista que apenas guarda os elementos, em uma fila  é consumida, então no caso se uma variavel consumir o item 1 da fila (ordem de inserção, primeiro incrementado, primeiro consumido) esse item deixa de exister na mesma.
+
+      BlockingQueue<String> fila = new ArrayBlockingQueue<>(2);
+      fila.put(variavel); //insere na fila.
+      fila.take(); //Consome da lista.
+
+- Exemplo de criar e manipular uma fila
+
+Possui os métodos de Collections, porém tem seus próprios métodos como fila.peek(); onde você não consome apenas visualiza o elemento dentro da fila sem remover, entre outros, mas esses são os principais. Obs: Para criar um ArrayBlockingQueue não precisa passar o Generecs<> porém ele deve ser um tamanho fixado (2), nesse exemplo foi 2.
+
+
+
+
 
 <p align="center">
   <img src="https://yata-apix-a9caea66-ad78-425f-aa08-e292558ebb65.lss.locawebcorp.com.br/0ef33a607ebb453e8fb4f13aa1ad56c7.png" align="center" width="530" >
@@ -211,7 +225,7 @@ agregar conhecimentos, aperfeiçoando para melhorar e se capacitar para o mercad
 ## Linguagens
  
 <div>
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original-wordmark.svg" align="center" heigth="50" width="60" >
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original-wordmark.svg" align="center" heigth="50" width="60">
  
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" align="center" heigth="50" width="60" >
  
