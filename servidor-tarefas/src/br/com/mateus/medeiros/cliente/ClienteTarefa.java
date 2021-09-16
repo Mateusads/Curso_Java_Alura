@@ -7,70 +7,73 @@ import java.util.Scanner;
 
 public class ClienteTarefa {
 
+	public static void main(String[] args) throws Exception {
+		Socket socket = new Socket("localhost", 12345);
+		System.out.println("Conexão Estabelecida");
 
-    public static void main(String[] args) throws Exception {
-        Socket socket = new Socket("localhost", 12345);
-        System.out.println("Conexão Estabelecida");
+		Thread threadEnviaComando = new Thread(new Runnable() {
 
-        Thread threadEnviaComando = new Thread(new Runnable() {
+			@Override
+			public void run() {
 
-            @Override
-            public void run() {
+				try {
+					System.out.println("Pode enviar comandos!");
+					PrintStream saida = new PrintStream(socket.getOutputStream());
+					String s = "c3";
+					while (true) {
+						
 
-                try {
-                    System.out.println("Pode enviar comandos!");
-                    PrintStream saida = new PrintStream(socket.getOutputStream());
+						for (int i = 0; i <= 90000; i++) {
+							saida.println(s);
+							Thread.sleep(5);
+							if (i == 90000) {
+								s = "";
+							}
+						}
 
-                    Scanner teclado = new Scanner(System.in);
-                    while (teclado.hasNextLine()) {
+						if (s.equals("")) {
+							break;
+						}
 
-                        String linha = teclado.nextLine();
+					}
 
-                        if (linha.trim().equals("")) {
-                            break;
-                        }
+					saida.close();
 
-                        saida.println(linha);
-                    }
+				} catch (Exception e) {
+					throw new RuntimeException(e);
+				}
+			}
+		});
 
-                    saida.close();
-                    teclado.close();
+		Thread threadRecebeResposta = new Thread(new Runnable() {
 
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-            }
-        });
+			@Override
+			public void run() {
 
-        Thread threadRecebeResposta = new Thread(new Runnable() {
+				try {
+					System.out.println("Recebendo dados do servidor");
+					Scanner respostaServidor = new Scanner(socket.getInputStream());
 
-            @Override
-            public void run() {
+					while (respostaServidor.hasNextLine()) {
+						String linha = respostaServidor.nextLine();
+						System.out.println(linha);
+					}
 
-                try {
-                    System.out.println("Recebendo dados do servidor");
-                    Scanner respostaServidor = new Scanner(socket.getInputStream());
+					respostaServidor.close();
 
-                    while (respostaServidor.hasNextLine()) {
-                        String linha = respostaServidor.nextLine();
-                        System.out.println(linha);
-                    }
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+				}
+			}
+		});
 
-                    respostaServidor.close();
+		threadRecebeResposta.start();
+		threadEnviaComando.start();
 
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-            }
-        });
+		threadEnviaComando.join();
 
-        threadRecebeResposta.start();
-        threadEnviaComando.start();
+		System.out.println("Fechando o socket do cliente");
 
-        threadEnviaComando.join();
-
-        System.out.println("Fechando o socket do cliente");
-
-        socket.close();
-    }
+		socket.close();
+	}
 }

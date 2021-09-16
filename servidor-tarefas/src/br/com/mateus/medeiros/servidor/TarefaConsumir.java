@@ -19,7 +19,7 @@ public class TarefaConsumir implements Runnable {
 
 				System.out.println(
 						"Consumindo fila comando: " + comando + " | Thread name: " + Thread.currentThread().getName());
-				Thread.sleep(20000);
+				Thread.sleep(2);
 			}
 
 		} catch (InterruptedException e) {

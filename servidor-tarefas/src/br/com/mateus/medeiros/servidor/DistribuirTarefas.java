@@ -18,6 +18,7 @@ public class DistribuirTarefas implements Runnable {
 	public DistribuirTarefas(ExecutorService threadPool, 
 			BlockingQueue<String> filaCliente, Socket socket, 
 			ServidorTarefas servidorTarefas) {
+
 		this.threadPool = threadPool;
 		this.filaCliente = filaCliente;
 		this.socket = socket;
@@ -54,10 +55,10 @@ public class DistribuirTarefas implements Runnable {
 	                break;
 	            }
 	            case "c3": {
-	                saidaCliente.println("Confirmação do comando c3");
-	                saidaCliente.println("Qual seu nome?");	
+	                saidaCliente.println("Confirmação do comando" +  ", " + Thread.currentThread().getName());
 	            	String comandoC3 = entradaCliente.nextLine();
 	                this.filaCliente.put(comandoC3);
+	                servidorTarefas.inicializarConsumidores();
 	                break;
 	            }
 				case "fim": {

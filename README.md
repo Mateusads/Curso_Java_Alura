@@ -187,7 +187,7 @@ Porém esse tipo Future não é bem um tipo, ele na verdade espera um tipo no "F
 
 Nesse caso de passar o tempo, caso o retorno não chegar é lançado uma execeção, da para deixar sem o tempo, mas se não vim o retorno ele ficara aguardando.
 
-BlockingQueue - [Queue](BlockingQueue) é uma "Fila", que diferente de lista que apenas guarda os elementos, em uma fila  é consumida, então no caso se uma variavel consumir o item 1 da fila (ordem de inserção, primeiro incrementado, primeiro consumido) esse item deixa de exister na mesma.
+BlockingQueue - [Queue](https://docs.oracle.com/javase/8/docs/api/java/util/Queue.html) é uma "Fila", que diferente de lista que apenas guarda os elementos, na fila os atributos são consumidos, então no caso se uma variavel consumir o item 1 da fila ordem de inserção, primeiro incrementado, primeiro consumido (First in, first out), esse item deixa de exister na mesma.
 
       BlockingQueue<String> fila = new ArrayBlockingQueue<>(2);
       fila.put(variavel); //insere na fila.
@@ -195,7 +195,17 @@ BlockingQueue - [Queue](BlockingQueue) é uma "Fila", que diferente de lista que
 
 - Exemplo de criar e manipular uma fila
 
-Possui os métodos de Collections, porém tem seus próprios métodos como fila.peek(); onde você não consome apenas visualiza o elemento dentro da fila sem remover, entre outros, mas esses são os principais. Obs: Para criar um ArrayBlockingQueue não precisa passar o Generecs<> porém ele deve ser um tamanho fixado (2), nesse exemplo foi 2.
+- - Para criar um ArrayBlockingQueue não precisa passar o Generecs<> porém ele deve ser um tamanho fixado (n), nesse exemplo foi 2.
+
+Possui os métodos de Collections, porém tem seus próprios métodos como put() e o offer() que inserem na fila, take() consome e peek() não consome apenas visualiza o elemento dentro da fila sem remover, entre outros, mas esses são os principais. 
+
+OBS: Ao tentar adicionar um elemento na fila "sem vaga", o método put() bloqueia a execução aguardando por uma vaga dentro da lista. Já o método offer() não bloqueia e retorna false caso não haja mais espaço na fila.
+
+<p align="center">
+  <img src="https://s3.amazonaws.com/caelum-online-public/threads2/img/07/fila2.png" align="center" width="250" >
+</p>
+
+- Exemplo de um fluxo de threads inserindo e consumindo da Queue.
 
 
 

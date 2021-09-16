@@ -9,6 +9,7 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class ServidorTarefas {
 
@@ -16,15 +17,18 @@ public class ServidorTarefas {
 	private ExecutorService threadPool;
 	private AtomicBoolean estaRodando;
 	private BlockingQueue<String> filaCliente;
+	private AtomicInteger atomicCliente;
 
 	// construtor
 	public ServidorTarefas() throws IOException {
 		System.out.println("---- Iniciando Servidor ----");
 		this.servidor = new ServerSocket(12345);
-		this.threadPool = Executors.newCachedThreadPool(new FabricaDeThreads());
+		this.threadPool = Executors.newFixedThreadPool(100, new FabricaDeThreads());
 		this.estaRodando = new AtomicBoolean(true);
-		this.filaCliente = new ArrayBlockingQueue<>(2);
-		inicializarConsumidores();
+		this.filaCliente = new ArrayBlockingQueue<>(999);
+		atomicCliente = new AtomicInteger();
+
+
 	}
 
 	public void rodar() throws IOException {
@@ -44,16 +48,19 @@ public class ServidorTarefas {
 		}
 	}
 
-	private void inicializarConsumidores() {
-
-		int qtdConsumidores = 2;
-		for (int i = 0; i < qtdConsumidores; i++) {
-			TarefaConsumir tarefa = new TarefaConsumir(filaCliente);
-			this.threadPool.execute(tarefa);
+	public void inicializarConsumidores() {
+		int c = atomicCliente.get();
+		c += 1;
+		atomicCliente.set(c);
+		System.out.println("chamado-numero: " + c);
+		for(int i = 0; i <= c ; i++) {	
+				TarefaConsumir tarefa = new TarefaConsumir(filaCliente);
+				this.threadPool.execute(tarefa);
+			}
 
 		}
 
-	}
+	
 
 	public void parar() throws IOException {
 		System.out.println("Parando servidor");
